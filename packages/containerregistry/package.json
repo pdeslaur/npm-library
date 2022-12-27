@@ -1,0 +1,13 @@
+{
+  "name": "@philde/containerregistry",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "serve": "echo 'no serve'",
+    "build": "echo 'no build'",
+    "lint": "echo 'no lint'",
+    "test": "echo 'no test'"
+  },
+  "dependencies": {}
+}
