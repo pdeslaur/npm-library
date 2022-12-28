@@ -1,12 +1,21 @@
 import ggcr from "./assets/go-containerregistry.wasm";
 import "./assets/wasm_exec.js";
 
-declare const containerregistry: {
+interface GGCR {
 	getManifest(image: string): Promise<string>;
-};
+}
+
+declare const containerregistry: GGCR;
 
 const go = new Go();
-const wasmObj = await ggcr(go.importObject);
-go.run(wasmObj);
+const loading = ggcr(go.importObject).then(wasm => {
+	go.run(wasm);
+});
 
-export const getManifest = containerregistry.getManifest;
+function WasmWrapper<T extends (...args: any) => any>(
+	fn: T
+): (...args: Parameters<T>) => Promise<ReturnType<T>> {
+	return args => loading.then(() => fn.call(args));
+}
+
+export const getManifest = WasmWrapper(containerregistry.getManifest);
