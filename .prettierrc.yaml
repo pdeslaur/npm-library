@@ -1,0 +1,9 @@
+# Copyright 2022 Chainguard, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+useTabs: true
+semi: true
+bracketSpacing: false
+arrowParens: avoid
+singleAttributePerLine: true
+proseWrap: never
