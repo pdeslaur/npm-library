@@ -6,7 +6,8 @@
 	"author": "Philippe Deslauriers <1692704+pdeslaur@users.noreply.github.com>",
 	"files": [
 		"dist",
-		"wasm"
+		"wasm",
+		"README.md"
 	],
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
