@@ -2,6 +2,8 @@
 	"name": "js-containerregistry",
 	"version": "0.0.8",
 	"license": "Apache-2.0",
+	"repository": "git@github.com:pdeslaur/npm-library.git",
+	"author": "Philippe Deslauriers <1692704+pdeslaur@users.noreply.github.com>",
 	"files": [
 		"dist",
 		"wasm"
