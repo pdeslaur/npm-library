@@ -1,6 +1,6 @@
 {
 	"name": "js-containerregistry",
-	"version": "0.0.8",
+	"version": "0.0.10",
 	"license": "Apache-2.0",
 	"repository": "git@github.com:pdeslaur/npm-library.git",
 	"author": "Philippe Deslauriers <1692704+pdeslaur@users.noreply.github.com>",
@@ -13,6 +13,7 @@
 	"types": "dist/src/index.d.ts",
 	"scripts": {
 		"dist": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+		"publish": "./hack/publish.sh",
 		"lint": "echo 'no lint'",
 		"test": "echo 'no test'"
 	},
@@ -20,6 +21,7 @@
 		"@rollup/plugin-typescript": "^10.0.1",
 		"@types/golang-wasm-exec": "^1.15.0",
 		"rollup": "^3.8.1",
+		"sigstore": "^0.2.0",
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.4"
 	}
