@@ -1,0 +1,30 @@
+{
+	"name": "rekor",
+	"version": "0.0.1",
+	"license": "Apache-2.0",
+	"repository": "git@github.com:pdeslaur/npm-library.git",
+	"author": "Philippe Deslauriers <1692704+pdeslaur@users.noreply.github.com>",
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/src/index.d.ts",
+	"scripts": {
+		"dist": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+		"codegen": "./hack/update_codegen.sh",
+		"lint": "echo 'no lint'",
+		"test": "echo 'no test'"
+	},
+	"devDependencies": {
+		"@rollup/plugin-typescript": "^10.0.1",
+		"rollup": "^3.8.1",
+		"sigstore": "^0.2.0",
+		"tslib": "^2.4.1",
+		"typescript": "^4.9.4",
+		"json-schema-to-typescript": "^11.0.2",
+		"openapi-typescript-codegen": "^0.22.0"
+	}
+}
