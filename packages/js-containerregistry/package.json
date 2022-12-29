@@ -1,6 +1,6 @@
 {
 	"name": "js-containerregistry",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"license": "Apache-2.0",
 	"repository": "git@github.com:pdeslaur/npm-library.git",
 	"author": "Philippe Deslauriers <1692704+pdeslaur@users.noreply.github.com>",
@@ -11,7 +11,7 @@
 	],
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/src/index.d.ts",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"dist": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
 		"release": "./hack/release.sh",

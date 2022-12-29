@@ -16,7 +16,11 @@ const configs: RollupOptions[] = [
 				sourcemap: true,
 			},
 		],
-		plugins: [typescript()],
+		plugins: [
+			typescript({
+				exclude: "rollup.config.ts",
+			}),
+		],
 	},
 ];
 
