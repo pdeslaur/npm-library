@@ -6,10 +6,11 @@ import type {Error} from "../models/Error";
 import type {LogInfo} from "../models/LogInfo";
 
 import type {CancelablePromise} from "../core/CancelablePromise";
-import {OpenAPI} from "../core/OpenAPI";
-import {request as __request} from "../core/request";
+import type {BaseHttpRequest} from "../core/BaseHttpRequest";
 
 export class TlogService {
+	constructor(public readonly httpRequest: BaseHttpRequest) {}
+
 	/**
 	 * Get information about the current state of the transparency log
 	 * Returns the current root hash and size of the merkle tree used to store the log entries.
@@ -17,8 +18,8 @@ export class TlogService {
 	 * @returns Error There was an internal error in the server while processing the request
 	 * @throws ApiError
 	 */
-	public static getLogInfo(): CancelablePromise<LogInfo | Error> {
-		return __request(OpenAPI, {
+	public getLogInfo(): CancelablePromise<LogInfo | Error> {
+		return this.httpRequest.request({
 			method: "GET",
 			url: "/api/v1/log",
 		});
@@ -31,7 +32,7 @@ export class TlogService {
 	 * @returns Error There was an internal error in the server while processing the request
 	 * @throws ApiError
 	 */
-	public static getLogProof({
+	public getLogProof({
 		lastSize,
 		firstSize = 1,
 		treeId,
@@ -44,7 +45,7 @@ export class TlogService {
 		/** The tree ID of the tree that you wish to prove consistency for **/
 		treeId?: string;
 	}): CancelablePromise<ConsistencyProof | Error> {
-		return __request(OpenAPI, {
+		return this.httpRequest.request({
 			method: "GET",
 			url: "/api/v1/log/proof",
 			query: {

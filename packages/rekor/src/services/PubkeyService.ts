@@ -4,10 +4,11 @@
 import type {Error} from "../models/Error";
 
 import type {CancelablePromise} from "../core/CancelablePromise";
-import {OpenAPI} from "../core/OpenAPI";
-import {request as __request} from "../core/request";
+import type {BaseHttpRequest} from "../core/BaseHttpRequest";
 
 export class PubkeyService {
+	constructor(public readonly httpRequest: BaseHttpRequest) {}
+
 	/**
 	 * Retrieve the public key that can be used to validate the signed tree head
 	 * Returns the public key that can be used to validate the signed tree head
@@ -15,13 +16,13 @@ export class PubkeyService {
 	 * @returns Error There was an internal error in the server while processing the request
 	 * @throws ApiError
 	 */
-	public static getPublicKey({
+	public getPublicKey({
 		treeId,
 	}: {
 		/** The tree ID of the tree you wish to get a public key for **/
 		treeId?: string;
 	}): CancelablePromise<string | Error> {
-		return __request(OpenAPI, {
+		return this.httpRequest.request({
 			method: "GET",
 			url: "/api/v1/log/publicKey",
 			query: {

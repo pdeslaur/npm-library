@@ -7,10 +7,11 @@ import type {ProposedEntry} from "../models/ProposedEntry";
 import type {SearchLogQuery} from "../models/SearchLogQuery";
 
 import type {CancelablePromise} from "../core/CancelablePromise";
-import {OpenAPI} from "../core/OpenAPI";
-import {request as __request} from "../core/request";
+import type {BaseHttpRequest} from "../core/BaseHttpRequest";
 
 export class EntriesService {
+	constructor(public readonly httpRequest: BaseHttpRequest) {}
+
 	/**
 	 * Creates an entry in the transparency log
 	 * Creates an entry in the transparency log for a detached signature, public key, and content. Items can be included in the request or fetched by the server when URLs are specified.
@@ -19,12 +20,12 @@ export class EntriesService {
 	 * @returns LogEntry Returns the entry created in the transparency log
 	 * @throws ApiError
 	 */
-	public static createLogEntry({
+	public createLogEntry({
 		proposedEntry,
 	}: {
 		proposedEntry: ProposedEntry;
 	}): CancelablePromise<Error | LogEntry> {
-		return __request(OpenAPI, {
+		return this.httpRequest.request({
 			method: "POST",
 			url: "/api/v1/log/entries",
 			body: proposedEntry,
@@ -41,13 +42,13 @@ export class EntriesService {
 	 * @returns Error There was an internal error in the server while processing the request
 	 * @throws ApiError
 	 */
-	public static getLogEntryByIndex({
+	public getLogEntryByIndex({
 		logIndex,
 	}: {
 		/** specifies the index of the entry in the transparency log to be retrieved **/
 		logIndex: number;
 	}): CancelablePromise<LogEntry | Error> {
-		return __request(OpenAPI, {
+		return this.httpRequest.request({
 			method: "GET",
 			url: "/api/v1/log/entries",
 			query: {
@@ -66,13 +67,13 @@ export class EntriesService {
 	 * @returns Error There was an internal error in the server while processing the request
 	 * @throws ApiError
 	 */
-	public static getLogEntryByUuid({
+	public getLogEntryByUuid({
 		entryUuid,
 	}: {
 		/** the UUID of the entry for which the inclusion proof information should be returned **/
 		entryUuid: string;
 	}): CancelablePromise<LogEntry | Error> {
-		return __request(OpenAPI, {
+		return this.httpRequest.request({
 			method: "GET",
 			url: "/api/v1/log/entries/{entryUUID}",
 			path: {
@@ -90,12 +91,12 @@ export class EntriesService {
 	 * @returns Error There was an internal error in the server while processing the request
 	 * @throws ApiError
 	 */
-	public static searchLogQuery({
+	public searchLogQuery({
 		entry,
 	}: {
 		entry: SearchLogQuery;
 	}): CancelablePromise<Array<LogEntry> | Error> {
-		return __request(OpenAPI, {
+		return this.httpRequest.request({
 			method: "POST",
 			url: "/api/v1/log/entries/retrieve",
 			body: entry,
