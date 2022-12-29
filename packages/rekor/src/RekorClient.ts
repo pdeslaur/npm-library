@@ -25,7 +25,7 @@ export class RekorClient {
 		HttpRequest: HttpRequestConstructor = FetchHttpRequest
 	) {
 		this.request = new HttpRequest({
-			BASE: config?.BASE ?? "http://rekor.sigstore.dev",
+			BASE: config?.BASE ?? "https://rekor.sigstore.dev",
 			VERSION: config?.VERSION ?? "1.0.0",
 			WITH_CREDENTIALS: config?.WITH_CREDENTIALS ?? false,
 			CREDENTIALS: config?.CREDENTIALS ?? "include",
