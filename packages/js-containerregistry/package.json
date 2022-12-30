@@ -1,6 +1,6 @@
 {
 	"name": "js-containerregistry",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"license": "Apache-2.0",
 	"repository": "https://github.com/pdeslaur/npm-library/tree/main/packages/js-containerregistry",
 	"author": "Philippe Deslauriers <1692704+pdeslaur@users.noreply.github.com>",

@@ -1,5 +1,11 @@
 # js-containerregistry
 
+## 0.0.16
+
+### Patch Changes
+
+- [#7](https://github.com/pdeslaur/npm-library/pull/7) [`25da7b2`](https://github.com/pdeslaur/npm-library/commit/25da7b2393f3bc78f1fc7b149dda48136c425818) Thanks [@pdeslaur](https://github.com/pdeslaur)! - Include changelog
+
 ## 0.0.15
 
 ### Patch Changes
