@@ -8,7 +8,7 @@ on:
 
 jobs:
   changed-packages:
-    name: Identity changed pacakges
+    name: Identify changed pacakges
     runs-on: ubuntu-latest
 
     outputs:
@@ -30,7 +30,7 @@ jobs:
     needs: changed-packages
     strategy:
       matrix:
-        package: ${{ needs.changed-packages.outputs.matrix }}
+        package: ${{ fromJson(needs.changed-packages.outputs.matrix) }}
       fail-fast: false
 
     steps:
