@@ -25,3 +25,9 @@ const cr = new ContainerRegistry(init);
 const m = await cr.getManifest("mirror.kontain.me/gcr.io/distroless/static");
 console.log(m);
 ```
+
+## Dependencies versions
+
+| Package                                | Version |
+| -------------------------------------- | ------- |
+| github.com/google/go-containerregistry | v0.12.1 |
