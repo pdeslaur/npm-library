@@ -20,8 +20,10 @@ jobs:
           # Retriev the last 2 commits in order to identify package.json files
           # that have changed.
           fetch-depth: ${{ github.event_name != 'workflow_dispatch' && 2 || 0 }}
+      - id: find-files
+        run: echo "command=${{ github.event_name != 'workflow_dispatch' && 'git diff --name-only HEAD HEAD~1' || 'git ls-tree -r HEAD --name-only' }}" >> "${GITHUB_OUTPUT}"
       - id: set-matrix
-        run: echo "matrix=$(git diff --name-only HEAD HEAD~1 | sed -En "s/(.*)\/package\.json$/\1/p" | jq -R -s -c 'split("\n") | map(select(length > 0))')" >> $GITHUB_OUTPUT
+        run: echo "matrix=$(${{ steps.find-files.outputs.command }} | sed -En "s/(.*)\/package\.json$/\1/p" | jq -R -s -c 'split("\n") | map(select(length > 0))')" >> "${GITHUB_OUTPUT}"
 
 
   changesets:
