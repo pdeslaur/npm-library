@@ -7,6 +7,8 @@ Code generation is powered by:
 - json-schema-to-typescript
 - openapi-typescript-codegen
 
-## Compatibility
+## Dependencies versions
 
-Types are generated from this version: https://github.com/sigstore/rekor/releases/tag/v1.0.1
+| Package                   | Version |
+| ------------------------- | ------- |
+| github.com/sigstore/rekor | v1.0.1  |
