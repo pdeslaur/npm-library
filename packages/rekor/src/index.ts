@@ -33,3 +33,5 @@ export {EntriesService} from "./services/EntriesService";
 export {IndexService} from "./services/IndexService";
 export {PubkeyService} from "./services/PubkeyService";
 export {TlogService} from "./services/TlogService";
+
+export * from "./models/RekorError";
