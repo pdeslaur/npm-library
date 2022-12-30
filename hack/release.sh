@@ -10,22 +10,23 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-pushd go
-GOOS=js GOARCH=wasm go build -o ../wasm/containerregistry.wasm ./cmd/wasm
-popd
+if [[ $# -eq 0 ]] ; then
+    echo 'Missing package. Example usage: `./hack/release.sh "packages/rekor"`'
+    exit 1
+fi
+readonly PACKAGE="${1}"
+
+pushd "${PACKAGE}"
 
 rm -rf dist
 pnpm dist
 
-PACK=$(npm pack)
+PACK=$(pnpm pack)
+echo $PACK
 
 echo "Signing release..."
-LOG_INDEX=$(pnpm exec sigstore sign "${PACK}" | jq -r '.verificationData.tlogEntries[0].logIndex')
+LOG_INDEX=$(pnpm sigstore sign "${PACK}" | jq -r '.verificationData.tlogEntries[0].logIndex')
 echo "Rekor entry: https://rekor.tlog.dev/?logIndex=${LOG_INDEX}"
 
 echo "Publishing..."
-npm publish --access public ${PACK}
-
-echo "Cleaning up..."
-rm ${PACK}
-rm -rf dist
+pnpm publish ${PACK}

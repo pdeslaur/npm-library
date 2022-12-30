@@ -1,0 +1,49 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths: ["**/CHANGELOG.md"]
+
+jobs:
+  changed-packages:
+    name: Identity changed pacakges
+    runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Retriev the last 2 commits in order to identify package.json files
+          # that have changed.
+          fetch-depth: ${{ !github.event.workflow_dispatch && 2 || 0 }}
+      - id: set-matrix
+        run: diff --name-only HEAD HEAD~1 | sed -En "s/(.*)\/package\.json$/\1/p" | jq -R -s -c 'split("\n") | map(select(length > 0))' >> $GITHUB_OUTPUT
+
+
+  changesets:
+    name: Changesets
+    runs-on: ubuntu-latest
+    needs: changed-packages
+    strategy:
+      matrix:
+        package: ${{ needs.changed-packages.outputs.matrix }}
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2.2.2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - run: ./hack/release "${{ matrix.package }}"
