@@ -48,4 +48,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - run: ./hack/release "${{ matrix.package }}"
+      - run: ./hack/release.sh "${{ matrix.package }}"
