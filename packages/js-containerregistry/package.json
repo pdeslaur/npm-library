@@ -2,7 +2,7 @@
 	"name": "js-containerregistry",
 	"version": "0.0.13",
 	"license": "Apache-2.0",
-	"repository": "git@github.com:pdeslaur/npm-library.git",
+	"repository": "https://github.com/pdeslaur/npm-library/tree/main/packages/js-containerregistry",
 	"author": "Philippe Deslauriers <1692704+pdeslaur@users.noreply.github.com>",
 	"files": [
 		"dist",
