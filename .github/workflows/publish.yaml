@@ -21,7 +21,7 @@ jobs:
           # that have changed.
           fetch-depth: ${{ !github.event.workflow_dispatch && 2 || 0 }}
       - id: set-matrix
-        run: diff --name-only HEAD HEAD~1 | sed -En "s/(.*)\/package\.json$/\1/p" | jq -R -s -c 'split("\n") | map(select(length > 0))' >> $GITHUB_OUTPUT
+        run: git diff --name-only HEAD HEAD~1 | sed -En "s/(.*)\/package\.json$/\1/p" | jq -R -s -c 'split("\n") | map(select(length > 0))' >> $GITHUB_OUTPUT
 
 
   changesets:
