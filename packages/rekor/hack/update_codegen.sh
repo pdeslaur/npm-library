@@ -14,7 +14,6 @@ if [[ $# -eq 0 ]] ; then
     echo 'Missing rekor version. Example usage: "./hack/update_codegen.sh v1.0.1"'
     exit 0
 fi
-
 readonly REF="${1}"
 
 generate_types() {

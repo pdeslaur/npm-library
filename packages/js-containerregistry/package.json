@@ -12,16 +12,19 @@
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"dist": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
-		"release": "./hack/release.sh",
+		"codegen": "./hack/update_codegen.sh",
 		"lint": "echo 'no lint'",
 		"test": "echo 'no test'"
 	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "^10.0.1",
 		"@types/golang-wasm-exec": "^1.15.0",
-		"rollup": "^3.8.1",
+		"rollup": "^3.9.0",
 		"sigstore": "^0.2.0",
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.4"

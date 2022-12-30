@@ -7,25 +7,28 @@
 	"files": [
 		"dist",
 		"README.md",
-		"LICENSE"
+		"LICENSE",
+		"CHANGELOG.md"
 	],
 	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"dist": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
 		"codegen": "./hack/update_codegen.sh",
-		"release": "./hack/release.sh",
 		"lint": "echo 'no lint'",
 		"test": "echo 'no test'"
 	},
 	"devDependencies": {
 		"@rollup/plugin-typescript": "^10.0.1",
-		"rollup": "^3.8.1",
+		"json-schema-to-typescript": "^11.0.2",
+		"openapi-typescript-codegen": "^0.22.0",
+		"rollup": "^3.9.0",
 		"sigstore": "^0.2.0",
 		"tslib": "^2.4.1",
-		"typescript": "^4.9.4",
-		"json-schema-to-typescript": "^11.0.2",
-		"openapi-typescript-codegen": "^0.22.0"
+		"typescript": "^4.9.4"
 	}
 }
