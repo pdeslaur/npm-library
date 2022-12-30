@@ -1,6 +1,6 @@
 {
 	"name": "rekor",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"license": "Apache-2.0",
 	"repository": "https://github.com/pdeslaur/npm-library/tree/main/packages/rekor",
 	"author": "Philippe Deslauriers <1692704+pdeslaur@users.noreply.github.com>",

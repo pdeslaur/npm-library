@@ -1,5 +1,11 @@
 # rekor
 
+## 0.0.7
+
+### Patch Changes
+
+- [#4](https://github.com/pdeslaur/npm-library/pull/4) [`94d11cc`](https://github.com/pdeslaur/npm-library/commit/94d11cc6563d395512a2631cd052a0e1c0d362ee) Thanks [@pdeslaur](https://github.com/pdeslaur)! - Include CHANGELOG.md in published bundle
+
 ## 0.0.6
 
 ### Patch Changes
