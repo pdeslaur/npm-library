@@ -11,4 +11,4 @@ Code generation is powered by:
 
 | Package                   | Version |
 | ------------------------- | ------- |
-| github.com/sigstore/rekor | v1.0.1  |
+| github.com/sigstore/rekor | v1.1.0  |
