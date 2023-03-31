@@ -1,5 +1,11 @@
 # rekor
 
+## 0.1.0
+
+### Minor Changes
+
+- [#9](https://github.com/pdeslaur/npm-library/pull/9) [`e85e7ea`](https://github.com/pdeslaur/npm-library/commit/e85e7ea24439eb8d36957d65fa1870e3538ac33b) Thanks [@pdeslaur](https://github.com/pdeslaur)! - Update Rekor types to v1.1.0
+
 ## 0.0.7
 
 ### Patch Changes
