@@ -18,10 +18,18 @@ export class TlogService {
 	 * @returns Error There was an internal error in the server while processing the request
 	 * @throws ApiError
 	 */
-	public getLogInfo(): CancelablePromise<LogInfo | Error> {
+	public getLogInfo({
+		stable = false,
+	}: {
+		/** Whether to return a stable checkpoint for the active shard **/
+		stable?: boolean;
+	}): CancelablePromise<LogInfo | Error> {
 		return this.httpRequest.request({
 			method: "GET",
 			url: "/api/v1/log",
+			query: {
+				stable: stable,
+			},
 		});
 	}
 

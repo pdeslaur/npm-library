@@ -12,6 +12,7 @@ export type {OpenAPIConfig} from "./core/OpenAPI";
 export * from "./models/alpine";
 export type {ConsistencyProof} from "./models/ConsistencyProof";
 export * from "./models/cose";
+export * from "./models/dsse";
 export type {Error} from "./models/Error";
 export * from "./models/hashedrekord";
 export * from "./models/helm";

@@ -25,7 +25,7 @@ export interface TUFV001Schema {
 		/**
 		 * Specifies the metadata inline within the document
 		 */
-		content?: {
+		content: {
 			[k: string]: unknown;
 		};
 	};
