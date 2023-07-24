@@ -1,5 +1,11 @@
 # rekor
 
+## 0.2.0
+
+### Minor Changes
+
+- [#11](https://github.com/pdeslaur/npm-library/pull/11) [`f106058`](https://github.com/pdeslaur/npm-library/commit/f10605827610df88b0a8c6fee2b57c52caa93c7b) Thanks [@bdehamer](https://github.com/bdehamer)! - Update Rekor types to v1.2.2
+
 ## 0.1.0
 
 ### Minor Changes
