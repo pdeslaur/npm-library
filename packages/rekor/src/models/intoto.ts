@@ -82,11 +82,11 @@ export interface IntotoV002Schema {
 					/**
 					 * signature of the payload
 					 */
-					sig?: string;
+					sig: string;
 					/**
 					 * public key that corresponds to this signature
 					 */
-					publicKey?: string;
+					publicKey: string;
 				},
 				...{
 					/**
@@ -96,11 +96,11 @@ export interface IntotoV002Schema {
 					/**
 					 * signature of the payload
 					 */
-					sig?: string;
+					sig: string;
 					/**
 					 * public key that corresponds to this signature
 					 */
-					publicKey?: string;
+					publicKey: string;
 				}[]
 			];
 		};

@@ -50,6 +50,7 @@ export type Error = never;
 	KINDS=(
 		"alpine"
 		"cose"
+		"dsse"
 		"hashedrekord"
 		"helm"
 		"intoto"
